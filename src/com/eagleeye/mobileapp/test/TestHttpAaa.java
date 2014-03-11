@@ -3,10 +3,6 @@ package com.eagleeye.mobileapp.test;
 import org.junit.Assert;
 
 public class TestHttpAaa extends Test_Base {
-	
-	@Override
-	public void setUp() {
-	}
 
 	public void testAaaCreateAccount() {
 		Assert.assertTrue(false);

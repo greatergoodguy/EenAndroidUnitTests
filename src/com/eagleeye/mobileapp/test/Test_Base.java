@@ -21,6 +21,17 @@ public abstract class Test_Base extends ActivityInstrumentationTestCase2<Activit
 		super(ActivityUnitTests.class);
 	}
 	
+	@Override
+	public void setUp() {
+		logout();
+		login();
+	}
+	
+	@Override
+	public void tearDown() {
+		logout();
+	}
+	
 	// =====================
 	// Helper Methods
 	// =====================

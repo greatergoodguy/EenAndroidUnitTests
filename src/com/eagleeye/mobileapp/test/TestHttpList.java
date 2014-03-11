@@ -16,12 +16,6 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 public class TestHttpList extends Test_Base {
 
-	@Override
-	public void setUp() {
-		logout();
-		login();
-	}
-
 	public void testThisMethodAGoatIsNotAGoat() {
 		Assert.assertTrue(true);
 	}
@@ -148,5 +142,13 @@ public class TestHttpList extends Test_Base {
 			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.video_input);
 			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.video_status);
 		}
+	}
+
+	public void testListAccouts() {
+		Assert.assertTrue(false);
+	}
+	
+	public void testListUsers() {
+		Assert.assertTrue(false);
 	}
 }

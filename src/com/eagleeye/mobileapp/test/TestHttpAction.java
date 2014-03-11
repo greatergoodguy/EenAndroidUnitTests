@@ -12,12 +12,6 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 public class TestHttpAction extends Test_Base {
 	
-	@Override
-	public void setUp() {
-		logout();
-		login();
-	}
-	
 	boolean isAllOnPostSuccessful = false;
 	public void testActionAllOn() {
 		UtilLogger.logInfo(TAG, "testActionAllOn()");
