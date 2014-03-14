@@ -4,7 +4,7 @@ import org.junit.Assert;
 
 public class TestHttpFeedback {
 
-	public void testFeedback() {
+	public void testHttpFeedback() {
 		Assert.assertTrue(false);
 	}
 }

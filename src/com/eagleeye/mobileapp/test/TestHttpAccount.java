@@ -4,19 +4,19 @@ import org.junit.Assert;
 
 public class TestHttpAccount extends Test_Base {
 	
-	public void testAccountGet() {
+	public void testHttpAccountGet() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAccountPut() {
+	public void testHttpAccountPut() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAccountPost() {
+	public void testHttpAccountPost() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAccountDelete() {
+	public void testHttpAccountDelete() {
 		Assert.assertTrue(false);
 	}
 }

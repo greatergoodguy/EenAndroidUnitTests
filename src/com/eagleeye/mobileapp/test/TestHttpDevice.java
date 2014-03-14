@@ -4,19 +4,19 @@ import org.junit.Assert;
 
 public class TestHttpDevice extends Test_Base {
 
-	public void testDeviceGet() {
+	public void testHttpDeviceGet() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testDevicePut() {
+	public void testHttpDevicePut() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testDevicePost() {
+	public void testHttpDevicePost() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testDeviceDelete() {
+	public void testHttpDeviceDelete() {
 		Assert.assertTrue(false);
 	}
 }

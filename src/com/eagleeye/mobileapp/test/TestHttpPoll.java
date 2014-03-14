@@ -4,11 +4,11 @@ import org.junit.Assert;
 
 public class TestHttpPoll extends Test_Base {
 	
-	public void testPollPost() {
+	public void testHttpPollPost() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testPollGet() {
+	public void testHttpPollGet() {
 		Assert.assertTrue(false);
 	}
 }

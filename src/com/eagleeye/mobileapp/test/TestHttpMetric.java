@@ -4,11 +4,11 @@ import org.junit.Assert;
 
 public class TestHttpMetric extends Test_Base {
 
-	public void testMetricBridgeBandwith() {
+	public void testHttpMetricBridgeBandwith() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testMetricCameraBandwith() {
+	public void testHttpMetricCameraBandwith() {
 		Assert.assertTrue(false);
 	}
 

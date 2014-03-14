@@ -13,7 +13,7 @@ import com.loopj.android.http.TextHttpResponseHandler;
 public class TestHttpAction extends Test_Base {
 	
 	boolean isAllOnPostSuccessful = false;
-	public void testActionAllOn() {
+	public void testHttpActionAllOn() {
 		UtilLogger.logInfo(TAG, "testActionAllOn()");
 		
 		final CountDownLatch latch = new CountDownLatch(1);
@@ -53,7 +53,7 @@ public class TestHttpAction extends Test_Base {
 	}
 	
 	boolean isAllOffPostSuccessful = false;
-	public void testActionAllOff() {
+	public void testHttpActionAllOff() {
 		UtilLogger.logInfo(TAG, "testActionAllOff()");
 		
 		final CountDownLatch latch = new CountDownLatch(1);
@@ -91,7 +91,7 @@ public class TestHttpAction extends Test_Base {
 		
 		Assert.assertTrue(isAllOffPostSuccessful);
 	}
-	public void testActionRecordNow() {
+	public void testHttpActionRecordNow() {
 		Assert.assertTrue(false);
 	}
 	

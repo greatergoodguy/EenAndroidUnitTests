@@ -4,6 +4,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.http.Header;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 import android.test.ActivityInstrumentationTestCase2;
 
@@ -21,13 +25,13 @@ public abstract class Test_Base extends ActivityInstrumentationTestCase2<Activit
 		super(ActivityUnitTests.class);
 	}
 	
-	@Override
+	@Before
 	public void setUp() {
 		logout();
 		login();
 	}
 	
-	@Override
+	@After
 	public void tearDown() {
 		logout();
 	}
@@ -36,6 +40,7 @@ public abstract class Test_Base extends ActivityInstrumentationTestCase2<Activit
 	// Helper Methods
 	// =====================
 	public void login() {
+		UtilLogger.logInfo(TAG, "login()");
 		final CountDownLatch latch = new CountDownLatch(1);
 		
 		try {
@@ -43,7 +48,7 @@ public abstract class Test_Base extends ActivityInstrumentationTestCase2<Activit
 				@Override public void run() {
 					UtilHttpAaa.authenticatePost(TESTACCOUNT_USERNAME, TESTACCOUNT_PASSWORD, new TextHttpResponseHandler() {
 						@Override public void onSuccess(int statusCode, Header[] headers, String responseString) {
-							UtilLogger.logInfo(TAG, "Http Authenticate Post onSuccess()");
+							//UtilLogger.logInfo(TAG, "Http Authenticate Post onSuccess()");
 							
 							PojoAaaAuthenticatePost pojo = new PojoAaaAuthenticatePost(responseString);
 							String authenticationToken = pojo.token;
@@ -51,13 +56,13 @@ public abstract class Test_Base extends ActivityInstrumentationTestCase2<Activit
 							UtilHttpAaa.authorizePost(authenticationToken, new TextHttpResponseHandler() {
 								
 								@Override public void onSuccess(int statusCode, Header[] headers, String responseString) {
-									UtilLogger.logInfo(TAG, "Http Authorize Post onSuccess()");
+									//UtilLogger.logInfo(TAG, "Http Authorize Post onSuccess()");
 									latch.countDown();
 									
 								}
 								
 								@Override public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-									UtilLogger.logInfo(TAG, "Http Authorize Post onFailure()");
+									//UtilLogger.logInfo(TAG, "Http Authorize Post onFailure()");
 									latch.countDown();
 								}
 							});
@@ -66,7 +71,7 @@ public abstract class Test_Base extends ActivityInstrumentationTestCase2<Activit
 						
 						@Override
 						public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-							UtilLogger.logInfo(TAG, "Http Authenticate Post onFailure()");
+							//UtilLogger.logInfo(TAG, "Http Authenticate Post onFailure()");
 							latch.countDown();
 						}
 					});
@@ -94,23 +99,23 @@ public abstract class Test_Base extends ActivityInstrumentationTestCase2<Activit
 						
 						@Override
 						public void onStart() {
-							UtilLogger.logInfo(TAG, "Http Logout Post onStart()");
+							//UtilLogger.logInfo(TAG, "Http Logout Post onStart()");
 						}
 						
 						@Override
 						public void onFinish() {
-							UtilLogger.logInfo(TAG, "Http Logout Post onFinish()");
+							//UtilLogger.logInfo(TAG, "Http Logout Post onFinish()");
 						}
 						
 						@Override
 						public void onSuccess(int statusCode, Header[] headers, String responseString) {
-							UtilLogger.logInfo(TAG, "Http Logout Post onSuccess()");
+							//UtilLogger.logInfo(TAG, "Http Logout Post onSuccess()");
 							latch.countDown();
 						}
 						
 						@Override
 						public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-							UtilLogger.logInfo(TAG, "Http Logout Post onSuccess()");
+							//UtilLogger.logInfo(TAG, "Http Logout Post onSuccess()");
 							latch.countDown();
 						}
 					});

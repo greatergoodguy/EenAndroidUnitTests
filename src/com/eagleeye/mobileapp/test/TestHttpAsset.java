@@ -4,31 +4,31 @@ import org.junit.Assert;
 
 public class TestHttpAsset extends Test_Base {
 
-	public void testAssetAsset() {
+	public void testHttpAssetAsset() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAssetPrev() {
+	public void testHttpAssetPrev() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAssetNext() {
+	public void testHttpAssetNext() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAssetAfter() {
+	public void testHttpAssetAfter() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAssetPlayVideo() {
+	public void testHttpAssetPlayVideo() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAssetListImage() {
+	public void testHttpAssetListImage() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testAssetListVideo() {
+	public void testHttpAssetListVideo() {
 		Assert.assertTrue(false);
 	}
 }

@@ -4,19 +4,19 @@ import org.junit.Assert;
 
 public class TestHttpLayout extends Test_Base {
 	
-	public void testLayoutGet() {
+	public void testHttpLayoutGet() {
 		Assert.assertTrue(false);
 	}
 
-	public void testLayoutPut() {
+	public void testHttpLayoutPut() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testLayoutPost() {
+	public void testHttpLayoutPost() {
 		Assert.assertTrue(false);
 	}
 	
-	public void testLayoutDelete() {
+	public void testHttpLayoutDelete() {
 		Assert.assertTrue(false);
 	}
 }
