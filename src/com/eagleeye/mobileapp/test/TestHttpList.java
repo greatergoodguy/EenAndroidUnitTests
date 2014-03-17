@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.junit.Assert;
+import org.junit.Ignore;
 
 import com.eagleeye.mobileapp.extension.Ext_Assert;
-import com.eagleeye.mobileapp.pojo.PojoListDevice;
 import com.eagleeye.mobileapp.pojo.PojoListDevices;
 import com.eagleeye.mobileapp.pojo.PojoListLayouts;
 import com.eagleeye.mobileapp.pojo.PojoListUsers;
@@ -35,7 +35,7 @@ public class TestHttpList extends Test_Base {
 						@Override
 						public void onSuccess(int statusCode, Header[] headers, String responseString) {
 							UtilLogger.logInfo(TAG, "Http List Devices onSuccess()");
-							UtilLogger.logInfo(TAG, responseString);
+							//UtilLogger.logInfo(TAG, responseString);
 							
 							isListLayoutsGetSuccessful = true;
 							pojoListLayouts = new PojoListLayouts(responseString);
@@ -85,7 +85,7 @@ public class TestHttpList extends Test_Base {
 						@Override
 						public void onSuccess(int statusCode, Header[] headers, String responseString) {
 							UtilLogger.logInfo(TAG, "Http List Devices Get onSuccess()");
-							UtilLogger.logInfoAsJson(TAG, responseString);
+							//UtilLogger.logInfoAsJsonArray(TAG, responseString);
 							isListDevicesGetSuccessful = true;
 							pojoListDevices = new PojoListDevices(responseString);
 							latch.countDown();
@@ -113,86 +113,65 @@ public class TestHttpList extends Test_Base {
 
 		Assert.assertTrue(isListDevicesGetSuccessful);
 		Assert.assertNotNull(pojoListDevices);
-
-		for(PojoListDevice pojoListDevice : pojoListDevices.devices) {
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.account_id);
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.id);
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.name);
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.type);
-			Assert.assertNotNull(pojoListDevice.bridges);
-
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.service_status);
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.permissions);
-			Assert.assertNotNull(pojoListDevice.tags);
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.guid);
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.serial_number);
-
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.timezone);
-
-			// TODO: Assert Failure
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.ip_address);
-
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.owner_account_name);
-
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.video_input);
-			Ext_Assert.assertStringNotNullOrEmpty(pojoListDevice.video_status);
-		}
+		Ext_Assert.assertValid(pojoListDevices);
 	}
 
-//	PojoListUsers pojoListUsers;
-//	boolean isListUsersGetSuccessful;
-//	public void testHttpListUsers() {
-//		UtilLogger.logInfo(TAG, "testListUsers()");
-//
-//		final CountDownLatch latch = new CountDownLatch(1);
-//		isListUsersGetSuccessful = false;
-//
-//
-//		try {
-//			runTestOnUiThread(new Runnable() {
-//
-//				@Override
-//				public void run() {
-//					UtilHttpList.usersGet(new JsonHttpResponseHandler() {
-//
-//						@Override
-//						public void onSuccess(int statusCode, Header[] headers, JSONArray jsonArray) {
-//							UtilLogger.logInfo(TAG, "Http List Devices Get onSuccess()");
-//							UtilLogger.logInfoAsJsonArray(TAG, jsonArray);
-//							
-//							pojoListUsers = new PojoListUsers(jsonArray);
-//							isListUsersGetSuccessful = true;
-//							latch.countDown();
-//						}
-//
-//						@Override
-//						public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-//							UtilLogger.logInfo(TAG, "Http List Devices Get onFailure()");
-//							isListUsersGetSuccessful = false;
-//							latch.countDown();
-//
-//						}
-//					});
-//				}
-//			});
-//		} catch (Throwable e) {
-//			e.printStackTrace();
-//		}
-//
-//
-//		try {
-//			latch.await(TIMER_NETWORK_TIMEOUT_IN_SECOUNDS, TimeUnit.SECONDS);
-//			Assert.assertTrue(true);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
-//
-//		Assert.assertTrue(isListUsersGetSuccessful);
-//		Assert.assertNotNull(pojoListUsers);
-//		Assert.assertTrue(false);
-//	}
+	PojoListUsers pojoListUsers;
+	boolean isListUsersGetSuccessful;
+	@Ignore
+	public void testHttpListUsers() {
+		UtilLogger.logInfo(TAG, "testListUsers()");
 
-//	public void testHttpListAccouts() {
-//		Assert.assertTrue(false);
-//	}
+		final CountDownLatch latch = new CountDownLatch(1);
+		isListUsersGetSuccessful = false;
+
+
+		try {
+			runTestOnUiThread(new Runnable() {
+
+				@Override
+				public void run() {
+					UtilHttpList.usersGet(new JsonHttpResponseHandler() {
+
+						@Override
+						public void onSuccess(int statusCode, Header[] headers, JSONArray jsonArray) {
+							UtilLogger.logInfo(TAG, "Http List Devices Get onSuccess()");
+							UtilLogger.logInfoAsJsonArray(TAG, jsonArray);
+							
+							pojoListUsers = new PojoListUsers(jsonArray);
+							isListUsersGetSuccessful = true;
+							latch.countDown();
+						}
+
+						@Override
+						public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+							UtilLogger.logInfo(TAG, "Http List Devices Get onFailure()");
+							isListUsersGetSuccessful = false;
+							latch.countDown();
+
+						}
+					});
+				}
+			});
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+
+
+		try {
+			latch.await(TIMER_NETWORK_TIMEOUT_IN_SECOUNDS, TimeUnit.SECONDS);
+			Assert.assertTrue(true);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		Assert.assertTrue(isListUsersGetSuccessful);
+		Assert.assertNotNull(pojoListUsers);
+		Ext_Assert.assertValid(pojoListUsers);
+	}
+
+	@Ignore
+	public void testHttpListAccouts() {
+		Assert.assertTrue(false);
+	}
 }
