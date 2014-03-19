@@ -169,9 +169,4 @@ public class TestHttpList extends Test_Base {
 		Assert.assertNotNull(pojoListUsers);
 		Ext_Assert.assertValid(pojoListUsers);
 	}
-
-	@Ignore
-	public void testHttpListAccouts() {
-		Assert.assertTrue(false);
-	}
 }

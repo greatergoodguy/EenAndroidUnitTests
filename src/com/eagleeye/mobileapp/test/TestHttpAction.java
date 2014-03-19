@@ -91,11 +91,4 @@ public class TestHttpAction extends Test_Base {
 		
 		Assert.assertTrue(isAllOffPostSuccessful);
 	}
-	public void testHttpActionRecordNow() {
-		Assert.assertTrue(false);
-	}
-	
-	public void testThisMethodAGoatIsNotAGoat() {
-		Assert.assertTrue(true);
-	}
 }
